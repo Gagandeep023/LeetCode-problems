@@ -1,0 +1,28 @@
+/**
+ * @param {string} word
+ * @return {boolean}
+ */
+var equalFrequency = function(word) {
+    // Initializing Set to store unique alphabet
+    let frequency = new Set()
+    for(let letter of word){
+        frequency.add(letter);
+    }
+    
+    // Number of unique alphabet
+    let uniqueElements = frequency.size;
+    
+    // Total Number of alphabet
+    let TotalLength = word.length;
+    
+    // If all the alphabet are coming only one time
+    if(TotalLength === uniqueElements)
+        return true;
+    
+    // else if all alphabet are coming 1 time and 1 alphabet coming two times
+    //or  all alphabet are coming more than 1 times and  1 alphabet coming 1 times
+    else if(TotalLength%uniqueElements === 1 || TotalLength%uniqueElements === uniqueElements - 1)
+        return true;
+    
+    return false;
+};
